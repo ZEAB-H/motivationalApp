@@ -7,6 +7,7 @@ class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
+
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
@@ -19,7 +20,8 @@ class HomeScreen extends StatelessWidget {
               print('Response status: ${response.statusCode}');
               print('Response body: ${response.body}');
               var data = jsonDecode(response.body);
-              print(data["message"]);
+              print(data["quotes"][0]["text"]);
+              print(data["quotes"][0]["author"]);
               Navigator.of(context).push(
                   MaterialPageRoute(builder: (context) => SecondScreen()));
             },
